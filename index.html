@@ -70,13 +70,6 @@ nav[aria-label="Main"] a[href="#contact"]{padding:10px 16px !important;font-size
 @keyframes intro-name{0%{opacity:0;transform:translateY(28px) scale(.96)}28%,58%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-48px)}}
 .m-studio > header{position:sticky;top:14px;z-index:50;border-bottom:none !important;padding:0 16px;animation:sb-up .8s cubic-bezier(.2,.7,.2,1) 1.25s both}
 .m-studio > header > nav{max-width:880px !important;background:var(--card);border:1px solid var(--border);border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.08);padding:10px 10px 10px 16px !important}
-.m-studio .hero{display:grid !important;grid-template-columns:minmax(0,1fr) minmax(0,460px);grid-template-areas:"chip chip" "title title" "intro snap" "btns snap";column-gap:56px;row-gap:22px;align-items:start;position:relative;z-index:0;padding-top:clamp(48px,8vw,110px) !important}
-.m-studio .hero > section:first-child{display:contents !important}
-.m-studio .hero-chip{grid-area:chip;justify-self:center}
-.m-studio .hero-title{grid-area:title;text-align:center;max-width:none !important;font-size:clamp(2.8rem,7.6vw,7.2rem) !important;margin:6px auto 26px !important}
-.m-studio .hero-intro{grid-area:intro;align-self:end}
-.m-studio .hero-btns{grid-area:btns}
-.m-studio .hero-snap{grid-area:snap;justify-self:end;width:100%;align-self:end}
 .m-studio .hero-chip{animation-delay:1.35s !important}.m-studio .hero-title{animation-delay:1.45s !important}.m-studio .hero-intro{animation-delay:1.6s !important}.m-studio .hero-btns{animation-delay:1.7s !important}.m-studio .hero-snap{animation-delay:1.8s !important}
 .m-studio .sb-count{animation-delay:2.1s}
 .m-studio .hero ~ section,.m-studio .hero ~ footer{position:relative;z-index:1}
@@ -94,8 +87,6 @@ nav[aria-label="Main"] a[href="#contact"]{padding:10px 16px !important;font-size
 .m-studio #contact{animation:outro-in linear both;animation-timeline:view();animation-range:entry 0% entry 70%}
 }
 @media (max-width: 640px){
-.m-studio .hero{grid-template-columns:1fr;grid-template-areas:"chip" "title" "intro" "btns" "snap";position:relative}
-.m-studio .hero-snap{justify-self:stretch}
 .m-studio > header{top:8px;padding:0 8px}
 .m-studio .manifesto-grid{grid-template-columns:1fr !important}
 }
