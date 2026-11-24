@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StockBasket — Sreyoshi Bardhan</title>
+<meta name="description" content="StockBasket — Sreyoshi Bardhan">
+<meta property="og:title" content="StockBasket — Sreyoshi Bardhan">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=Instrument+Serif:ital@0;1&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0}
+@keyframes sb-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.sb-up{animation:sb-up .8s cubic-bezier(.2,.7,.2,1) both}
+@media (prefers-reduced-motion: reduce){.sb-up{animation:none}}
+.t-serif [style*="var(--fd)"]{font-weight:400 !important;letter-spacing:-0.012em !important}
+.t-serif h1,.t-serif h2,.t-serif .sr-statement{text-transform:uppercase;line-height:.95 !important}
+.sr-w{display:inline-block}
+@keyframes sr-fade{from{opacity:.14}to{opacity:1}}
+@keyframes sr-up{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+@supports (animation-timeline: view()){
+.sr-w{animation:sr-fade linear both;animation-timeline:view();animation-range:entry 20% cover 45%}
+.sr-h{animation:sr-up linear both;animation-timeline:view();animation-range:entry 0% entry 90%}
+}
+@media (prefers-reduced-motion: reduce){.sr-w,.sr-h{animation:none !important;opacity:1 !important;transform:none !important}}
+.intro{display:none}
+.m-studio .intro{display:flex;position:fixed;inset:0;z-index:100;background:var(--bg);align-items:center;justify-content:center;pointer-events:none;animation:intro-out 2s cubic-bezier(.75,0,.2,1) forwards}
+.m-studio .intro span{font-family:var(--fd);font-size:clamp(44px,7.5vw,104px);letter-spacing:-0.02em;color:var(--ink);animation:intro-name 2s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes intro-out{0%,58%{transform:translateY(0)}100%{transform:translateY(-100%)}}
+@keyframes intro-name{0%{opacity:0;transform:translateY(28px) scale(.96)}28%,58%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-48px)}}
+.m-studio > header{position:sticky;top:14px;z-index:50;border-bottom:none !important;padding:0 16px;animation:sb-up .8s cubic-bezier(.2,.7,.2,1) 1.25s both}
+.m-studio > header > nav{max-width:880px !important;background:var(--card);border:1px solid var(--border);border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.08);padding:10px 10px 10px 16px !important}
+.m-studio .hero{display:grid !important;grid-template-columns:minmax(0,1fr) minmax(0,460px);grid-template-areas:"chip chip" "title title" "intro snap" "btns snap";column-gap:56px;row-gap:22px;align-items:start;position:relative;z-index:0;padding-top:clamp(48px,8vw,110px) !important}
+.m-studio .hero > section:first-child{display:contents !important}
+.m-studio .hero-chip{grid-area:chip;justify-self:center}
+.m-studio .hero-title{grid-area:title;text-align:center;max-width:none !important;font-size:clamp(2.8rem,7.6vw,7.2rem) !important;margin:6px auto 26px !important}
+.m-studio .hero-intro{grid-area:intro;align-self:end}
+.m-studio .hero-btns{grid-area:btns}
+.m-studio .hero-snap{grid-area:snap;justify-self:end;width:100%;align-self:end}
+.m-studio .hero-chip{animation-delay:1.35s !important}.m-studio .hero-title{animation-delay:1.45s !important}.m-studio .hero-intro{animation-delay:1.6s !important}.m-studio .hero-btns{animation-delay:1.7s !important}.m-studio .hero-snap{animation-delay:1.8s !important}
+.m-studio .sb-count{animation-delay:2.1s}
+.m-studio .hero ~ section,.m-studio .hero ~ footer{position:relative;z-index:1}
+.m-studio .manifesto,.m-studio #approach{position:relative;z-index:1}
+.manifesto-fade{display:none}
+.m-studio .manifesto-fade{display:block;position:absolute;left:0;right:0;top:-22vh;height:22vh;background:linear-gradient(to bottom, transparent, var(--panel));pointer-events:none}
+.m-studio #contact{background:var(--panel);color:var(--onp);border-radius:28px;width:calc(100% - 40px) !important;margin:24px auto !important;padding-left:clamp(24px,5vw,64px) !important;padding-right:clamp(24px,5vw,64px) !important;--ink:var(--onp);--muted:var(--onpm);--body:var(--onpb);--border:var(--pline);--accent:var(--pacc);--onacc:var(--panel)}
+@keyframes sr-spot{0%{opacity:.16}38%,62%{opacity:1}100%{opacity:.16}}
+@keyframes hero-exit{to{opacity:.25;transform:translateY(18%) scale(.97)}}
+@keyframes outro-in{from{transform:scale(.94);opacity:.5}to{transform:none;opacity:1}}
+@supports (animation-timeline: view()){
+.m-studio .sr-w{animation-name:sr-spot !important;animation-range:cover 12% cover 88% !important}
+.m-studio .sb-card,.m-studio #approach .m-swipe > div,.m-studio #experience > div > div,.m-studio #certifications a,.m-studio .rv{animation:sr-up linear both;animation-timeline:view();animation-range:entry 0% entry 85%}
+.m-studio .hero{animation:hero-exit linear both;animation-timeline:view();animation-range:exit 0% exit 100%}
+.m-studio #contact{animation:outro-in linear both;animation-timeline:view();animation-range:entry 0% entry 70%}
+}
+@media (max-width: 640px){
+.m-studio .hero{grid-template-columns:1fr;grid-template-areas:"chip" "title" "intro" "btns" "snap";position:relative}
+.m-studio .hero-snap{justify-self:stretch}
+.m-studio > header{top:8px;padding:0 8px}
+.m-studio .manifesto-grid{grid-template-columns:1fr !important}
+}
+@media (prefers-reduced-motion: reduce){.m-studio .intro{display:none}.m-studio > header,.m-studio .sb-card,.m-studio #contact{animation:none !important}}
+</style>
+<style>html,body{background:#F6F4F1}</style>
+
+</head>
+<body>
+<div class="t-serif m-studio" style="--bg: #F6F4F1; --card: #FFFFFF; --chip: #ECE8E3; --ink: #120D0D; --body: #3E3735; --muted: #6B625F; --border: #E2DDD7; --panel: #0E0A0A; --panel2: #1C1717; --onp: #F3EFEA; --onpm: #9A918C; --onpb: #CFC8C2; --pborder: #4A4240; --pline: #2A2423; --accent: #120D0D; --onacc: #F6F4F1; --pacc: #F3EFEA; --fd: 'Instrument Serif', 'Times New Roman', serif; color-scheme: light; background: var(--bg); color: var(--ink); font-family: 'Instrument Sans', 'Helvetica Neue', sans-serif; display: flex; flex-direction: column; padding-bottom: 40px">
+
+  <header style="border-bottom: 1px solid var(--border)">
+    <nav aria-label="Case study" style="max-width: 1200px; width: 100%; box-sizing: border-box; margin: 0 auto; padding-left: clamp(20px, 5vw, 40px); padding-right: clamp(20px, 5vw, 40px); padding-top: 16px; padding-bottom: 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+      <a href="index.html#work" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink); font-size: 15px; font-weight: 600; padding: 10px 16px; border: 1.5px solid var(--ink); border-radius: 999px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"></path></svg>All work</a>
+      <span style="display: flex; align-items: center; gap: 10px"><span style="width: 34px; height: 34px; border-radius: 50%; background: var(--panel); color: var(--pacc); display: inline-flex; align-items: center; justify-content: center; font-family: var(--fd); font-weight: 700; font-size: 13px">SB</span><span style="font-family: var(--fd); font-weight: 700; font-size: 17px; white-space: nowrap">Sreyoshi Bardhan</span></span>
+    </nav>
+  </header>
+
+  <section style="max-width: 1200px; width: 100%; box-sizing: border-box; margin: 0 auto; padding-left: clamp(20px, 5vw, 40px); padding-right: clamp(20px, 5vw, 40px); padding-top: clamp(40px, 6vw, 72px); display: flex; flex-direction: column; gap: 22px">
+    <div class="sb-up" style="display: flex; flex-wrap: wrap; gap: 8px"><span style="font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; background: var(--ink); color: var(--bg)">Investobull</span><span style="font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; background: var(--chip)">0 → 1</span><span style="font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; background: var(--chip)">B2B client project</span></div>
+    <h1 class="sb-up" style="animation-delay: .1s; margin: 0; max-width: 960px; font-family: var(--fd); font-weight: 700; font-size: clamp(2.3rem, 5.2vw, 4.4rem); line-height: 1.02; letter-spacing: -0.035em">Thematic investing, taken from research and requirements all the way to launch.</h1>
+    <p class="sb-up" style="animation-delay: .2s; margin: 0; max-width: 760px; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; color: var(--body)">StockBasket lets fund managers create and manage thematic micro-portfolios with automated rebalancing — and lets investors put money into curated baskets, from Clean Energy to AI &amp; Tech.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px"><a href="https://stock-bundles.lovable.app" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; height: 48px; box-sizing: border-box; padding: 0 20px; font-size: 15px; font-weight: 600; color: var(--onacc); background: var(--accent); border-radius: 999px; text-decoration: none">View live prototype<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></a></div>
+    <div class="sb-up" style="animation-delay: .3s; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 16px 28px; padding-top: 8px"><div style="display: flex; flex-direction: column; gap: 4px; padding-top: 14px; border-top: 1px solid var(--border)"><span style="font-size: 13px; color: var(--muted)">Role</span><span style="font-size: 16px; font-weight: 600; line-height: 1.35">Junior Product Manager</span></div><div style="display: flex; flex-direction: column; gap: 4px; padding-top: 14px; border-top: 1px solid var(--border)"><span style="font-size: 13px; color: var(--muted)">Company</span><span style="font-size: 16px; font-weight: 600; line-height: 1.35">Investobull Fintech</span></div><div style="display: flex; flex-direction: column; gap: 4px; padding-top: 14px; border-top: 1px solid var(--border)"><span style="font-size: 13px; color: var(--muted)">Team</span><span style="font-size: 16px; font-weight: 600; line-height: 1.35">Cross-functional</span></div><div style="display: flex; flex-direction: column; gap: 4px; padding-top: 14px; border-top: 1px solid var(--border)"><span style="font-size: 13px; color: var(--muted)">Status</span><span style="font-size: 16px; font-weight: 600; line-height: 1.35">Launched · B2B client project</span></div></div>
+  </section>
+
+  <section style="max-width: 1200px; width: 100%; box-sizing: border-box; margin: 0 auto; padding-left: clamp(20px, 5vw, 40px); padding-right: clamp(20px, 5vw, 40px); padding-top: 56px">
+    <div style="background: var(--panel); color: var(--onp); border-radius: 28px; padding: clamp(22px, 3vw, 36px); display: flex; flex-direction: column; gap: 20px">
+      <span style="font-family: var(--fd); font-size: 22px; font-weight: 500">What shipped</span>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px"><div style="display: flex; flex-direction: column; gap: 14px; padding: 24px; background: var(--panel2); border-radius: 18px; min-width: 0"><span style="font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--onpm)">User roles: Admin, Fund Manager, Investor</span><span style="font-family: var(--fd); font-size: clamp(36px, 4.2vw, 54px); font-weight: 700; letter-spacing: -0.03em; line-height: 1; color: var(--pacc); white-space: nowrap">3</span></div><div style="display: flex; flex-direction: column; gap: 14px; padding: 24px; background: var(--panel2); border-radius: 18px; min-width: 0"><span style="font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--onpm)">Core features, from basket creation to analytics</span><span style="font-family: var(--fd); font-size: clamp(36px, 4.2vw, 54px); font-weight: 700; letter-spacing: -0.03em; line-height: 1; color: var(--pacc); white-space: nowrap">6</span></div><div style="display: flex; flex-direction: column; gap: 14px; padding: 24px; background: var(--panel2); border-radius: 18px; min-width: 0"><span style="font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--onpm)">Research to launch</span><span style="font-family: var(--fd); font-size: clamp(36px, 4.2vw, 54px); font-weight: 700; letter-spacing: -0.03em; line-height: 1; color: var(--pacc); white-space: nowrap">0 → 1</span></div></div>
+      
+    </div>
+  </section>
+
+  <section style="max-width: 1200px; width: 100%; box-sizing: border-box; margin: 0 auto; padding-left: clamp(20px, 5vw, 40px); padding-right: clamp(20px, 5vw, 40px); padding-top: 72px"><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 20px">
+      <div style="background: var(--card); border: 1px solid var(--border); border-radius: 22px; padding: 28px; display: flex; flex-direction: column; gap: 14px"><span style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: var(--muted)">THE PROBLEM</span><p style="margin: 0; font-size: 17px; line-height: 1.6; color: var(--body)">Retail investors struggle with diversification and thematic investing — it takes deep market knowledge and constant monitoring. Fund managers lacked efficient tools to create and rebalance micro-portfolios.</p></div>
+      <div style="background: var(--card); border: 1.5px solid var(--ink); border-radius: 22px; padding: 28px; display: flex; flex-direction: column; gap: 14px"><span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink)"><span style="width: 10px; height: 10px; border-radius: 3px; background: var(--accent)"></span>MY SOLUTION</span><p style="margin: 0; font-size: 17px; line-height: 1.6; color: var(--body)">A platform where fund managers build thematic baskets with custom allocation and automated rebalancing, admins approve them, and investors discover and subscribe in a few taps.</p></div>
+    </div></section>
+
+  <section style="max-width: 1200px; width: 100%; box-sizing: border-box; margin: 0 auto; padding-left: clamp(20px, 5vw, 40px); padding-right: clamp(20px, 5vw, 40px); padding-top: 72px; display: flex; flex-direction: column; gap: 16px">
+    <h2 style="margin: 0; font-family: var(--fd); font-weight: 700; font-size: clamp(1.75rem, 3.4vw, 2.6rem); letter-spacing: -0.03em; line-height: 1.05">Key features</h2>
+    
+    <div style="display: flex; flex-direction: column; padding-top: 8px">
+<div style="display: flex; flex-wrap: wrap; gap: 10px 32px; padding: 24px 0; border-top: 1px solid var(--border)">
+        <div style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; font-weight: 600; color: var(--muted)">01</span><span style="font-family: var(--fd); font-size: 22px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2">Multi-role architecture</span></div>
+        <div style="flex: 999 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px 28px">
+          
+          <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600; color: var(--ink)">Detail</span><span style="font-size: 15px; line-height: 1.55; color: var(--body)">Admin, Fund Manager and Investor roles, each with its own workflow.</span></div>
+        </div>
+      </div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px 32px; padding: 24px 0; border-top: 1px solid var(--border)">
+        <div style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; font-weight: 600; color: var(--muted)">02</span><span style="font-family: var(--fd); font-size: 22px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2">Basket creation</span></div>
+        <div style="flex: 999 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px 28px">
+          
+          <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600; color: var(--ink)">Detail</span><span style="font-size: 15px; line-height: 1.55; color: var(--body)">Theme-based baskets with custom stock allocation.</span></div>
+        </div>
+      </div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px 32px; padding: 24px 0; border-top: 1px solid var(--border)">
+        <div style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; font-weight: 600; color: var(--muted)">03</span><span style="font-family: var(--fd); font-size: 22px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2">Smart rebalancing</span></div>
+        <div style="flex: 999 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px 28px">
+          
+          <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600; color: var(--ink)">Detail</span><span style="font-size: 15px; line-height: 1.55; color: var(--body)">Automated portfolio rebalancing.</span></div>
+        </div>
+      </div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px 32px; padding: 24px 0; border-top: 1px solid var(--border)">
+        <div style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; font-weight: 600; color: var(--muted)">04</span><span style="font-family: var(--fd); font-size: 22px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2">Performance analytics</span></div>
+        <div style="flex: 999 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px 28px">
+          
+          <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600; color: var(--ink)">Detail</span><span style="font-size: 15px; line-height: 1.55; color: var(--body)">Real-time insights and returns tracking.</span></div>
+        </div>
+      </div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px 32px; padding: 24px 0; border-top: 1px solid var(--border)">
+        <div style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; font-weight: 600; color: var(--muted)">05</span><span style="font-family: var(--fd); font-size: 22px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2">Approval workflow</span></div>
+        <div style="flex: 999 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px 28px">
+          
+          <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600; color: var(--ink)">Detail</span><span style="font-size: 15px; line-height: 1.55; color: var(--body)">Admin review and approval before baskets go live.</span></div>
+        </div>
+      </div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px 32px; padding: 24px 0; border-top: 1px solid var(--border)">
+        <div style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; font-weight: 600; color: var(--muted)">06</span><span style="font-family: var(--fd); font-size: 22px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2">Investment experience</span></div>
+        <div style="flex: 999 1 420px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px 28px">
+          
+          <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600; color: var(--ink)">Detail</span><span style="font-size: 15px; line-height: 1.55; color: var(--body)">Smooth discovery and subscription for investors.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="max-width: 1200px; width: 100%; box-sizing: border-box; margin: 0 auto; padding-left: clamp(20px, 5vw, 40px); padding-right: clamp(20px, 5vw, 40px); padding-top: 72px; display: flex; flex-direction: column; gap: 24px">
+    <h2 style="margin: 0; font-family: var(--fd); font-weight: 700; font-size: clamp(1.75rem, 3.4vw, 2.6rem); letter-spacing: -0.03em; line-height: 1.05">My contributions</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px"><div style="background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 8px"><span style="font-family: var(--fd); font-size: 19px; font-weight: 700; line-height: 1.25">Product strategy</span><span style="font-size: 15px; line-height: 1.5; color: var(--body)">User research and personas, feature prioritisation and roadmap, success metrics.</span></div><div style="background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 8px"><span style="font-family: var(--fd); font-size: 19px; font-weight: 700; line-height: 1.25">UX design</span><span style="font-size: 15px; line-height: 1.5; color: var(--body)">Complete wireframes, an interactive prototype in Lovable, and user-flow optimisation.</span></div><div style="background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 8px"><span style="font-family: var(--fd); font-size: 19px; font-weight: 700; line-height: 1.25">Development coordination</span><span style="font-size: 15px; line-height: 1.5; color: var(--body)">Detailed specifications and technical requirement documents, working across teams.</span></div><div style="background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 8px"><span style="font-family: var(--fd); font-size: 19px; font-weight: 700; line-height: 1.25">Product delivery</span><span style="font-size: 15px; line-height: 1.5; color: var(--body)">Sprint planning, QA coordination and stakeholder communication.</span></div></div>
+  </section>
+
+  <section style="max-width: 1200px; width: 100%; box-sizing: border-box; margin: 0 auto; padding-left: clamp(20px, 5vw, 40px); padding-right: clamp(20px, 5vw, 40px); padding-top: 72px; display: flex; flex-direction: column; gap: 24px">
+    <h2 style="margin: 0; font-family: var(--fd); font-weight: 700; font-size: clamp(1.75rem, 3.4vw, 2.6rem); letter-spacing: -0.03em; line-height: 1.05">What I learned</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; color: var(--onp)"><div style="background: var(--panel2); border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 10px"><span style="font-size: 14px; font-weight: 600; color: var(--pacc)">01</span><span style="font-family: var(--fd); font-size: 21px; font-weight: 500; line-height: 1.25">Design for each role</span><span style="font-size: 15px; line-height: 1.55; color: var(--onpb)">Research showed each user type had different pain points, which is why the product is role-based.</span></div><div style="background: var(--panel2); border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 10px"><span style="font-size: 14px; font-weight: 600; color: var(--pacc)">02</span><span style="font-family: var(--fd); font-size: 21px; font-weight: 500; line-height: 1.25">Clear specs save time</span><span style="font-size: 15px; line-height: 1.55; color: var(--onpb)">Detailed specifications cut development time and kept the team aligned.</span></div><div style="background: var(--panel2); border-radius: 20px; padding: 26px; display: flex; flex-direction: column; gap: 10px"><span style="font-size: 14px; font-weight: 600; color: var(--pacc)">03</span><span style="font-family: var(--fd); font-size: 21px; font-weight: 500; line-height: 1.25">Talk often</span><span style="font-size: 15px; line-height: 1.55; color: var(--onpb)">Regular communication across design, engineering and business made iteration faster.</span></div></div>
+  </section>
+
+  <section style="max-width: 1200px; width: 100%; box-sizing: border-box; margin: 0 auto; padding-left: clamp(20px, 5vw, 40px); padding-right: clamp(20px, 5vw, 40px); padding-top: 72px">
+    <a href="careerlens.html" style="text-decoration: none; color: var(--ink); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding: 28px 0; border-top: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink)">
+      <span style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: var(--muted)">NEXT CASE STUDY</span><span style="font-family: var(--fd); font-size: clamp(24px, 3vw, 34px); font-weight: 700; letter-spacing: -0.02em">CareerLens.AI</span></span>
+      <span style="width: 56px; height: 56px; border-radius: 50%; background: var(--accent); display: inline-flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+    </a>
+  </section>
+</div>
+</body>
+</html>
